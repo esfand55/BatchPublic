@@ -1,4 +1,4 @@
-package com.friendsurance.impl;
+package com.friendsurance.service;
 
 import com.friendsurance.backend.User;
 import com.friendsurance.mail.EmailService;

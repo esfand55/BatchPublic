@@ -13,7 +13,7 @@ public class EMailItemProcessing extends ItemProcessing<InputItem, OutputItem> {
 
     private EmailService.MailType defaultEmailType = EmailService.MailType.MAIL_TYPE_1;
 
-    protected EMailItemProcessing(ItemReader<InputItem> reader, ItemWriter<OutputItem> writer) {
+    public EMailItemProcessing(ItemReader<InputItem> reader, ItemWriter<OutputItem> writer) {
         super(reader, writer);
     }
 
@@ -25,6 +25,10 @@ public class EMailItemProcessing extends ItemProcessing<InputItem, OutputItem> {
         Integer invitations = item.getUser().getSentInvitationsNumber();
 
         EmailService.MailType mailType = calculateMailType(hasContract, friends, invitations);
+
+        // There has been no valid status based on implemented algorithm
+        if (mailType == null)
+            return null;
 
         return new OutputItem(item.getUser(), mailType);
     }
@@ -72,7 +76,7 @@ public class EMailItemProcessing extends ItemProcessing<InputItem, OutputItem> {
         }
 
         if (userOptions.isEmpty())
-            return defaultEmailType;
+            return null;
 
         Integer max = userOptions.get(0).getValue();
         for (EmailService.MailType mailType: userOptions) {

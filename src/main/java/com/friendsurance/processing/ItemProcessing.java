@@ -32,7 +32,8 @@ public abstract class ItemProcessing<I, O> {
      */
     public final void doProcessing() {
 
-        for (I item = reader.read(); item != null; ) {
+        // This line was changed to fix the problem of iteration over the loop
+        for (I item = reader.read(); item != null; item = reader.read() ) {
 
             O result = process(item);
 

@@ -1,4 +1,4 @@
-package com.friendsurance.impl;
+package com.friendsurance.service;
 
 import com.friendsurance.backend.User;
 import com.friendsurance.mail.EmailService;
@@ -19,19 +19,19 @@ public class MarketingContentServiceImpl implements MarketingContentService {
                 return "Hey "+ recipient.getName()+", do you remember us? Give us a try and be social with your insurances!";
 
             case MAIL_TYPE_2:
-                return "";
+                return "Email Template for Type 2";
 
             case MAIL_TYPE_3:
-                return "";
+                return "Email Template for Type 3";
 
             case MAIL_TYPE_4:
 
-                return "";
+                return "Email Template for Type 4";
 
             case MAIL_TYPE_5:
-                return "";
+                return "Email Template for Type 5";
         }
 
-        return "";
+        return "Default template";
     }
 }

@@ -19,4 +19,9 @@ public class InputItem {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public String toString() {
+        return user.toString();
+    }
 }
