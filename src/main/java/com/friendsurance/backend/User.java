@@ -1,9 +1,18 @@
 package com.friendsurance.backend;
 
+import com.friendsurance.mail.EmailRecipient;
+
 /**
  * Encapsulates the information about user's situation.
  */
-public class User {
+public class User implements EmailRecipient {
+
+    /*
+        TODO: I only added this attribute only for demonstration purpose of customized content generation otherwise,
+
+         it is not mandatory 
+     */
+    private String name;
 
     private String  email;
     private boolean hasContract;
@@ -15,6 +24,14 @@ public class User {
         this.hasContract = hasContract;
         this.friendsNumber = friendsNumber;
         this.sentInvitationsNumber = sentInvitationsNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
